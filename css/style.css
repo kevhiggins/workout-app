@@ -1,0 +1,11 @@
+.section {
+	margin-top:10px;
+}
+.section h2, .section a {
+	float:left;
+}
+
+.section a {
+	margin-top: 15px;
+	margin-left: 5px;
+}
