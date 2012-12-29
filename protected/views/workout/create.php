@@ -6,13 +6,13 @@ $this->breadcrumbs=array(
 	'Workouts'=>array('index'),
 	'Create',
 );
-
-$this->menu=array(
-	array('label'=>'List Workout', 'url'=>array('index')),
-	array('label'=>'Manage Workout', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Create Workout</h1>
+<h1>Press Start to begin <?php echo $exerciseList[$model->exercise_id]; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model, 'exerciseList'=>$exerciseList)); ?>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'workout-form',
+	'enableAjaxValidation'=>false,
+)); ?>
+<?php echo DHtml::submitButton('Start'); ?>
+<?php $this->endWidget(); ?>

@@ -19,13 +19,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'weight'); ?>
-		<?php echo $form->textField($model,'weight'); ?>
+		<?php echo $form->numberField($model,'weight'); ?>
 		<?php echo $form->error($model,'weight'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'repetitions'); ?>
-		<?php echo $form->textField($model,'repetitions'); ?>
+		<?php echo $form->numberField($model,'repetitions'); ?>
 		<?php echo $form->error($model,'repetitions'); ?>
 	</div>
 

@@ -31,16 +31,15 @@ class WorkoutController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($exercise_id)
 	{
 		$model=new Workout;
-
+		$model->exercise_id = $exercise_id;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Workout']))
+		if(Yii::app()->request->isPostRequest)
 		{
-			$model->attributes=$_POST['Workout'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -95,9 +94,17 @@ class WorkoutController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Workout');
+		$workout = new Workout;
+		if(isset($_POST['Workout']))
+		{
+			$workout->attributes = $_POST['Workout'];
+			if($workout->validate())
+				$this->redirect(array('create', 'exercise_id'=>$workout->exercise_id));
+		}
+
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'workout'=>$workout,
+			'exerciseList'=>Exercise::model()->getList(),
 		));
 	}
 

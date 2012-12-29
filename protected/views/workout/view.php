@@ -27,6 +27,8 @@ $this->menu=array(
 	),
 )); ?>
 
+<div id="workout-timer" class="section">0</div>
+
 <div class="section">
 	<h2 class="section">Sets</h2>
 	<?php echo CHtml::link('Create', array('set/create', 'workout_id'=>$model->id)); ?>
@@ -36,3 +38,11 @@ $this->menu=array(
 	'dataProvider'=>$setDataProvider,
 	'itemView'=>'/set/_view',
 )); ?>
+
+
+<script type="text/javascript">
+$(function() {
+	$('#workout-timer').countdown({since: 0,
+	    format: 'S'});
+});
+</script>

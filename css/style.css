@@ -9,3 +9,12 @@
 	margin-top: 15px;
 	margin-left: 5px;
 }
+
+#workout-timer {
+	color: red;
+	font-size: 40px;
+}
+
+#workout-timer.hasCountdown {
+	border: 0px;
+}
